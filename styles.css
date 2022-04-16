@@ -59,7 +59,8 @@ ul {
     gap: 10px;
 }
 
-button {
+.player-btn,
+.computer-btn {
     border-radius: 10%;
     border: 5px solid #2ac3df;
     background-color: #009eba;
@@ -77,5 +78,11 @@ button {
 
 .active {
     border: 5px solid gold;
+    background-color: #005a6a;
+}
+
+.modal {
+    position: fixed;
+    padding: 100px;
     background-color: #005a6a;
 }

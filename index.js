@@ -81,10 +81,12 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerPoints == 5) {
         console.log('Player won!');
+        winner = 'Player';
         playerPoints = 0;
         computerPoints = 0;
     } else if (computerPoints == 5) {
         console.log('Computer won!');
+        winner = 'Computer';
         playerPoints = 0;
         computerPoints = 0;
     }
@@ -99,6 +101,24 @@ function removeTransition(e) {
     rockComp.classList.remove('active');
     scissorsComp.classList.remove('active');
     paperComp.classList.remove('active');
+}
+
+function displayResult() {
+
+    // if winner is Player
+        // display modal You won
+        // make the window less opaque
+        // make the window inactive
+    // else if winner is Computer
+        // display modal You lost
+        // make the window less opaque
+        // make the window inactive
+    
+    // When button Play again is clicked
+        // hide modal
+        // set the window's opacity to 1
+        // make the window active
+        // winner = '';
 }
 
 rockPlayer.addEventListener('click', () => playRound('rock', computerPlay()));
