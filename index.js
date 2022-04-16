@@ -30,6 +30,33 @@ function playRound(playerSelection, computerSelection) {
     console.log(playerSelection);
     console.log(computerSelection);
 
+    switch(playerSelection) {
+        case 'rock':
+            rockPlayer.classList.add('active');
+            break;
+        case 'paper':
+            paperPlayer.classList.add('active');
+            break;
+        case 'scissors':
+            scissorsPlayer.classList.add('active');
+            break;
+        default:
+            break;
+    }
+
+    switch(computerSelection) {
+        case 'rock':
+            rockComp.classList.add('active');
+            break;
+        case 'paper':
+            paperComp.classList.add('active');
+            break;
+        case 'scissors':
+            scissorsComp.classList.add('active');
+            break;
+        default:
+            break;
+    }
     
 
     if (computerSelection == 'rock' && playerSelection == 'paper') {
@@ -65,7 +92,19 @@ function playRound(playerSelection, computerSelection) {
     return;
 }
 
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('active');
+
+    rockComp.classList.remove('active');
+    scissorsComp.classList.remove('active');
+    paperComp.classList.remove('active');
+}
+
 rockPlayer.addEventListener('click', () => playRound('rock', computerPlay()));
 paperPlayer.addEventListener('click', () => playRound('paper', computerPlay()));
 scissorsPlayer.addEventListener('click', () => playRound('scissors', computerPlay()));
 
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
