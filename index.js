@@ -13,6 +13,10 @@ const scissorsComp = document.querySelector('.scissors-btn-comp');
 const playerScore = document.querySelector('.player__score');
 const computerScore = document.querySelector('.computer__score');
 
+let playerPoints = 0;
+let computerPoints = 0;
+let winner;
+
 function computerPlay() {
     let options = ['rock', 'paper', 'scissors']
     let chosenOption = Math.round(Math.random()*2)
@@ -20,44 +24,34 @@ function computerPlay() {
     return options[chosenOption]
 }
 
-function userPlay(btn) {
-    let userOption;
+function playRound(playerSelection, computerSelection) {
 
-    if (btn == 'rock') userOption = 'rock';
-    if (btn == 'paper') userOption = 'paper';
-    if (btn == 'scissors') userOption = 'scissors';
+    console.log(playerSelection);
+    console.log(computerSelection);
 
-    return userOption
+    if (computerSelection == 'rock' && playerSelection == 'paper') {
+        playerPoints++;
+    } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
+        computerPoints++;
+    } else if (computerSelection == 'paper' && playerSelection == 'rock') {
+        computerPoints++;
+    } else if (computerSelection == 'paper' && playerSelection == 'scissors') {
+        playerPoints++;
+    } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
+        playerPoints++;
+    } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
+        computerPoints++;
+    }
+
+    playerScore.textContent = playerPoints;
+    computerScore.textContent = computerPoints;
+
+    console.log(playerPoints);
+    console.log(computerPoints);
+
+    return winner;
 }
 
-rockPlayer.addEventListener('click', () => userPlay('rock'));
-paperPlayer.addEventListener('click', () => userPlay('paper'));
-scissorsPlayer.addEventListener('click', () => userPlay('scissors'));
-
-let userPoints = 0;
-let computerPoints = 0;
-
-playerScore.textContent = userPoints;
-computerScore.textContent = computerPoints;
-
-// while (userPoints < 5 && computerPoints < 5) {
-//     let computerOption = computerPlay()
-//     let userOption = userPlay()
-
-//     if (computerOption == 'rock' && userOption == 'paper') {
-//         userPoints++
-//     } else if (computerOption == 'rock' && userOption == 'scissors') {
-//         computerPoints++
-//     } else if (computerOption == 'paper' && userOption == 'rock') {
-//         computerPoints++
-//     } else if (computerOption == 'paper' && userOption == 'scissors') {
-//         userPoints++
-//     } else if (computerOption == 'scissors' && userOption == 'rock') {
-//         userPoints++
-//     } else if (computerOption == 'scissors' && userOption == 'paper') {
-//         computerPoints++
-//     }
-
-//     console.log(`User points: ${userPoints}`)
-//     console.log(`Computer points: ${computerPoints}`)
-// }
+rockPlayer.addEventListener('click', () => playRound('rock', computerPlay()));
+paperPlayer.addEventListener('click', () => playRound('paper', computerPlay()));
+scissorsPlayer.addEventListener('click', () => playRound('scissors', computerPlay()));
