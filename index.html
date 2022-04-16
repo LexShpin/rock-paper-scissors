@@ -4,10 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='./index.js'></script>
+    <link rel="stylesheet" href="./styles.css">
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    
+<h1 class="heading">Rock, Paper, Scissors</h1>
+<div class="container">
+    <div class="options">
+        <h2 class="options__header">Player</h2>
+        <div class="player__info">
+            <img src="./assets/athlete.png" alt="player icon" class="play__icon">
+            <h3>Score: <span class="player__score"></span></h3>
+            <span class="score"></span>
+        </div>
+        <ul class="options_list">
+            <li>
+                <button class="player-btn rock-btn-player">
+                    <img src="./assets/rock.png" alt="rock" class="options__img">
+                </button>
+            </li>
+            <li>
+                <button class="player-btn paper-btn-player">
+                    <img src="./assets/paper.png" alt="paper" class="options__img">
+                </button>
+            </li>
+            <li>
+                <button class="player-btn scissors-btn-player">
+                    <img src="./assets/scissors.png" alt="scissors" class="options__img">
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="options">
+        <h2 class="options__header">Computer</h2>
+        <div class="player__info">
+            <img src="./assets/robot.png" alt="player icon" class="play__icon">
+            <h3 class="options__score">Score: <span class="computer__score"></span></h3>
+            <span class="score"></span>
+        </div>
+        <ul class="options_list">
+            <li>
+                <button class="computer-btn rock-btn-comp">
+                    <img src="./assets/rock.png" alt="rock" class="options__img">
+                </button>
+            </li>
+            <li>
+                <button class="computer-btn paper-btn-comp">
+                    <img src="./assets/paper.png" alt="paper" class="options__img">
+                </button>
+            </li>
+            <li>
+                <button class="computer-btn scissors-btn-comp">
+                    <img src="./assets/scissors.png" alt="scissors" class="options__img">
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src='./index.js'></script>    
 </body>
 </html>
