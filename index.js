@@ -19,6 +19,7 @@ const overlay = document.querySelector('.overlay');
 
 const playAgainBtns = document.querySelectorAll('.modal__button');
 
+// Creating variables for scores and a winner
 let playerPoints = 0;
 let computerPoints = 0;
 let winner;
