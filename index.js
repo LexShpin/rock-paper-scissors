@@ -23,6 +23,7 @@ let playerPoints = 0;
 let computerPoints = 0;
 let winner;
 
+// Choose an option for computer
 function computerPlay() {
     let options = ['rock', 'paper', 'scissors']
     let chosenOption = Math.round(Math.random()*2)
@@ -30,9 +31,10 @@ function computerPlay() {
     return options[chosenOption]
 }
 
-
+// Play a round of the game, comparing user's and computer's options and defining who won after 5 rounds
 function playRound(playerSelection, computerSelection) {
 
+    // Player's choice displayed
     switch(playerSelection) {
         case 'rock':
             rockPlayer.classList.add('active');
@@ -47,6 +49,7 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 
+    // Computer's choice displayed
     switch(computerSelection) {
         case 'rock':
             rockComp.classList.add('active');
@@ -62,6 +65,7 @@ function playRound(playerSelection, computerSelection) {
     }
     
 
+    // Defining the winner of a round
     if (computerSelection == 'rock' && playerSelection == 'paper') {
         playerPoints++;
     } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
@@ -76,9 +80,11 @@ function playRound(playerSelection, computerSelection) {
         computerPoints++;
     }
 
+    // Displaying the score
     playerScore.textContent = playerPoints;
     computerScore.textContent = computerPoints;
 
+    // Finishing the game once a player or a computer has 5 points
     if (playerPoints == 5) {
         modalWon.style.display = 'flex';
         overlay.classList.add('overlay-active');
@@ -94,6 +100,7 @@ function playRound(playerSelection, computerSelection) {
     return;
 }
 
+// Animation for cards with options
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('active');
@@ -103,6 +110,7 @@ function removeTransition(e) {
     paperComp.classList.remove('active');
 }
 
+// Starting the game over when click "Play" on the modal window
 function startOver() {
     modalWon.style.display = 'none';
     modalLost.style.display = 'none';
@@ -111,11 +119,14 @@ function startOver() {
     computerScore.textContent = computerPoints;
 }
 
+// Event listeners for player buttons with options
 rockPlayer.addEventListener('click', () => playRound('rock', computerPlay()));
 paperPlayer.addEventListener('click', () => playRound('paper', computerPlay()));
 scissorsPlayer.addEventListener('click', () => playRound('scissors', computerPlay()));
 
+// Animation for each button
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
 
+// PLay again buttons event listener
 playAgainBtns.forEach(button => button.addEventListener('click', startOver));
