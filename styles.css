@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url(./assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,6 +13,7 @@ body {
 
 .heading {
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .container {
@@ -18,8 +24,10 @@ body {
 }
 
 .options {
-    border: 1px solid black;
-    
+    border: 5px solid #2ac3df;
+    border-radius: 4%;
+    background-color: #2ac3df;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
 
 .options__header {
@@ -51,10 +59,23 @@ ul {
     gap: 10px;
 }
 
+button {
+    border-radius: 10%;
+    border: 5px solid #2ac3df;
+    background-color: #009eba;
+}
+
 .player-btn {
     cursor: pointer;
 }
 
-.computer-btn {
+.player-btn:hover {
+    background-color: #005a6a;
+    transform: scale(1.1);
+    transition: 0.07 ease; 
+}
 
+.active {
+    border: 5px solid gold;
+    background-color: #005a6a;
 }

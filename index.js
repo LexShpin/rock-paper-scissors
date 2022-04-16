@@ -24,10 +24,13 @@ function computerPlay() {
     return options[chosenOption]
 }
 
+
 function playRound(playerSelection, computerSelection) {
 
     console.log(playerSelection);
     console.log(computerSelection);
+
+    
 
     if (computerSelection == 'rock' && playerSelection == 'paper') {
         playerPoints++;
@@ -49,9 +52,20 @@ function playRound(playerSelection, computerSelection) {
     console.log(playerPoints);
     console.log(computerPoints);
 
-    return winner;
+    if (playerPoints == 5) {
+        console.log('Player won!');
+        playerPoints = 0;
+        computerPoints = 0;
+    } else if (computerPoints == 5) {
+        console.log('Computer won!');
+        playerPoints = 0;
+        computerPoints = 0;
+    }
+
+    return;
 }
 
 rockPlayer.addEventListener('click', () => playRound('rock', computerPlay()));
 paperPlayer.addEventListener('click', () => playRound('paper', computerPlay()));
 scissorsPlayer.addEventListener('click', () => playRound('scissors', computerPlay()));
+
